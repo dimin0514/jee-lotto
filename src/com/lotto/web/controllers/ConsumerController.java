@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.lotto.web.daoimps.ConsumerDAOImpl;
 import com.lotto.web.domains.ConsumerBean;
 import com.lotto.web.serviceimpls.ConsumerServiceImpl;
 import com.lotto.web.services.ConsumerService;
@@ -16,6 +17,23 @@ public class ConsumerController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		switch(request.getParameter("action")) {
+		case"move":
+			request.getRequestDispatcher(String.format(ConsumerDAOImpl.VIEW_PATH,"consumer",request.getParameter("dest"))).forward(request, response);
+			break;
+		case"join":
+			request.getRequestDispatcher(String.format(ConsumerDAOImpl.VIEW_PATH,"consumer",request.getParameter("dest"))).forward(request, response);
+			
+			break;
+		case"login":
+			request.getRequestDispatcher("index.jsp").forward(request, response);
+			break;
+			
+		}
+		
+		
+		/*
 		String cid = request.getParameter("cid");
 		String pass = request.getParameter("pass");
 		ConsumerBean param = new ConsumerBean();
@@ -24,9 +42,9 @@ public class ConsumerController extends HttpServlet {
 		ConsumerService consuService = new ConsumerServiceImpl();
 		consuService.registerConsumer(param);
 		System.out.println(param.toString());
-		
-		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
+		
+		*/
 	}
 
 

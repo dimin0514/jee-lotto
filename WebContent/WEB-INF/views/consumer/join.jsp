@@ -12,7 +12,10 @@
 <form id=consumer action="<%=request.getContextPath()%>/consumer.do">
 	ID: <input type="text" name="cid" /><br />
 	PASS: <input type="password" name="pass"/><br />
-	<input type="submit" value="전송" />
+	<input type="hidden" name="action" value="join" />
+	<input type="hidden" name="dest" value="login" />
+	<input type="submit" id="test" value="전송" > 
+
 </form>
 <script>
 $('#consumer').submit(function(){

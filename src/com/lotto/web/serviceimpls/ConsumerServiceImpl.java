@@ -7,13 +7,15 @@ import com.lotto.web.services.ConsumerService;
 
 public class ConsumerServiceImpl implements ConsumerService{
 	private ConsumerDAO dao;
+	
+	
 	public ConsumerServiceImpl() {
 		dao = new ConsumerDAOImpl();
 	}
 
 	@Override
 	public void registerConsumer(ConsumerBean param) {
-		ConsumerDAO dao = new ConsumerDAOImpl();
+		
 		dao.insertConsumer(param);
 	}
 

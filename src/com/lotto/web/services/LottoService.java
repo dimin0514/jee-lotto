@@ -6,9 +6,9 @@ public interface LottoService {
 
 	public void cerateLotto(LottoBean param);
 	public String createLottoSeq();
-	public String createBallNum();
+	public int createBallNum();
 	public String createLotteryNum();
-	public boolean duplicatePrevention(int[] arr);
-	public String ascendingSort(int[] arr);
+	public boolean exist(int[] arr, int a);
+	public int[] bubbleSort(int[] arr, boolean flag);
 
 }
